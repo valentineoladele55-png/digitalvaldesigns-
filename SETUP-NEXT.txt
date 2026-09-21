@@ -1,0 +1,22 @@
+DIGITAL VAL DESIGNS — FREE NETLIFY + DECAP CMS SETUP
+
+WHAT IS ALREADY PREPARED
+- Existing design preserved.
+- 14 existing book covers preserved.
+- CMS-ready area for future covers and 3D mockups.
+- /admin/ CMS entry point.
+- Netlify-ready Project Brief form.
+- Thank-you page after form submission.
+
+WHAT YOU NEED TO DO
+1. Create a free GitHub account at github.com if you do not already have one.
+2. Create a free Netlify account at netlify.com.
+3. Tell me your GitHub username. Do NOT send me your password.
+4. I will then guide you through connecting the repository to Netlify and enabling the CMS.
+
+IMPORTANT
+- The CMS is Decap CMS.
+- Your private admin page will be /admin/.
+- The CMS uses Netlify Identity + Git Gateway for login.
+- Your Project Brief is submitted through Netlify Forms.
+- No custom domain is required to start.
