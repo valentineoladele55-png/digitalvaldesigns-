@@ -16,21 +16,21 @@
           return src.includes("image/project") || src.includes("images/project");
         });
 
-        let gallery = null;
-        let best = 0;
+        let best = null;
+        let bestCount = Infinity;
 
         candidates.forEach(img => {
           let n = img.parentElement;
-          for (let i = 0; i < 8 && n; i++, n = n.parentElement) {
+          for (let i = 0; i < 10 && n; i++, n = n.parentElement) {
             const count = n.querySelectorAll("img").length;
-            if (count > best && count >= 3) {
-              best = count;
-              gallery = n;
+            if (count >= 3 && count < bestCount) {
+              best = n;
+              bestCount = count;
             }
           }
         });
 
-        return gallery;
+        return best;
       }
 
       function render(gallery) {
@@ -39,8 +39,8 @@
         const cards = Array.from(gallery.children).filter(el =>
           el.querySelector && el.querySelector("img")
         );
-        const template = cards[0];
 
+        const template = cards[0];
         if (!template) return false;
 
         covers.forEach(item => {
@@ -90,7 +90,7 @@
 
         if (gallery && render(gallery)) {
           clearInterval(timer);
-        } else if (attempts >= 30) {
+        } else if (attempts >= 40) {
           clearInterval(timer);
         }
       }, 500);
