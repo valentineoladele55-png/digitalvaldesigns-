@@ -4,8 +4,9 @@
       const response = await fetch("/portfolio.json?cms=" + Date.now(), { cache: "no-store" });
       if (!response.ok) return;
       const data = await response.json();
+
       const covers = Array.isArray(data.covers) ? data.covers : [];
-      if (!covers.length) return;
+      const mockups = Array.isArray(data.mockups) ? data.mockups : [];
 
       let attempts = 0;
       const timer = setInterval(function () {
@@ -16,8 +17,12 @@
             window.renderCmsProject(item, "cover");
           });
 
-          const count = document.getElementById("coverCount");
-          if (count) count.textContent = (14 + covers.length) + " PROJECTS";
+          mockups.forEach(function (item) {
+            window.renderCmsProject(item, "mockup");
+          });
+
+          const coverCount = document.getElementById("coverCount");
+          if (coverCount) coverCount.textContent = (14 + covers.length) + " PROJECTS";
 
           if (typeof window.bindAllProjectCards === "function") {
             window.bindAllProjectCards();
